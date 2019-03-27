@@ -2,11 +2,11 @@ import itertools
 
 class Book(object):
   count = itertools.count()
-  def __init__(self, title, autor):
+  def __init__(self, title, author):
     self.__id = next(self.count)
     self.__title = title
-    self.__autor = autor
-
+    self.__author = author
+    
   def getId(self):
     return self.__id
   
@@ -14,4 +14,4 @@ class Book(object):
     return self.__title
   
   def getAuthor(self):
-    return self.__autor
+    return self.__author
