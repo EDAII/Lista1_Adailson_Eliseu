@@ -1,5 +1,6 @@
 import json
 import random
+import sys
 
 
 def gera_lista(limite_inferior, limite_superior, quantidade_numeros):
@@ -37,9 +38,15 @@ def load_names(filename):
 
 if __name__ == '__main__':
 
-    filename = "registered{}.csv"
-    
-    quantidade_numeros = 50000000
+    if len(sys.argv) == 4:
+        filename = sys.argv[1]
+        quantidade_arquivos = sys.argv[2]
+        quantidade_numeros = sys.argv[3]
+    else:
+        filename = "registered{}.csv"
+        quantidade_arquivos = 1
+        quantidade_numeros = 50000000
+
     # parametros do algoritmo
     names = load_names('names.json')
     quantidade_names = len(names)
@@ -49,14 +56,7 @@ if __name__ == '__main__':
     quantidade_surnames = len(surnames)
 
     # ALTERAR os arquivos gerados são definidos aqui
-    quantidade_arquivos = 1
     for i in range(quantidade_arquivos):
-    # i = 0
         limite_inferior = 0 + i*quantidade_numeros
         limite_superior = quantidade_numeros + i*quantidade_numeros
         gera_arquivo(limite_inferior, limite_superior, quantidade_numeros, filename.format(i))
-
-    n = input("Memória não estourou?")
-
-    # for r in lista_de_valores:
-    #     print(r)
