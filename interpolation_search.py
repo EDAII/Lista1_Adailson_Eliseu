@@ -76,7 +76,7 @@ def performance(quantidade_numeros, gap_percentage):
 if __name__ == '__main__':
 
     n = int(input('0 - Performance Automatica\n1 - Busca Manual: \n'))
-    quantidade_numeros = 2000
+    quantidade_numeros = 5000000
     print("Quantidade de elementos", quantidade_numeros)
     gap_percentage = int(quantidade_numeros*0.05)
     # parametros do algoritmo
