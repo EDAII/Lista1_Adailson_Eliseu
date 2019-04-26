@@ -17,10 +17,10 @@ def write_index(filename, chunk_size):
     data = []
     with open(index_file, "w+") as file:
         file.write('"filepath", "position", "data"\n')
-    body_index = ""
+    body_index = []
     for i in range(file_size//chunk_size):
         data = get_data_from_file(filename, chunk_size, i)
-        body_index +='"{}", "{}", "{:011d}"\n'.format(filename, i*chunk_size, data[0][0])
+        body_index.append('"{}", "{}", "{:011d}"\n'.format(filename, i*chunk_size, data[0][0]))
     with open(index_file, "a+") as file:
         file.write(body_index)
         file.write('"{}", "{}", "{:011d}"\n'.format(filename, file_size-1, data[-1][0]))
